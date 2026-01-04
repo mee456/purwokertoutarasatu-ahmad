@@ -67,6 +67,11 @@ var style_Desa_2 = function(feature, resolution){
         variables: {}
     };
     
+    // Check if feature should be hidden based on filter
+    if (feature.get("hideInMap") === true) {
+        return []; // Return empty style to hide feature
+    }
+    
     var labelText = ""; 
     var value = feature.get("NAME_4");
     var labelFont = "13.0px \'Open Sans\', sans-serif";
